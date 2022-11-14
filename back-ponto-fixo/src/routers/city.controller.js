@@ -15,12 +15,16 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
     await cityService.getAll((response) => {
         res.status(response.status).send(response);
+        /*  #swagger.tags = ['City']
+            #swagger.description = 'Endpoint to get all cities.' */
     })
 })
 
 router.get("/:id", async (req, res) => {
     await cityService.getById(req.params.id, (response) => {
         res.status(response.status).send(response);
+        /*  #swagger.tags = ['City']
+            #swagger.description = 'Endpoint to get city by ID.' */
     })
 });
 

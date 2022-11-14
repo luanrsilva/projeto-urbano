@@ -52,6 +52,31 @@
         "description": "Endpoint to add a city.",
         "parameters": [],
         "responses": {}
+      },
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "description": "Endpoint to get all cities.",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/city/{id}": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "description": "Endpoint to get city by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
       }
     },
     "/api/property/": {
