@@ -1,9 +1,9 @@
 # PROJETO-URBANO
 ## Back-End
 
-To see the API documentation, go to directory `back-ponto-fixo/src`, run `node swagger.js` and navigate to `http://localhost:8080/doc/#/`
+Run `node swagger.js` inside the directory `back-ponto-fixo/src` and navigate to `http://localhost:8080/doc/#/` to see the API documentation.
 
-## FrontPontoFixo
+## Front-End
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
