@@ -1,0 +1,40 @@
+.ui.container {
+  display: flex;
+  //background-color: nb-theme(background-color-primary);
+  justify-content: space-between;
+  padding-bottom: 12px;
+  //border-bottom: 1px solid;
+  padding-top: 23px;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  margin-left: 0px;
+  width: auto;
+}
+.column.buttons {
+  padding-top: 5px;
+}
+h3 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 0;
+}
+
+.description {
+  text-align: left;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 0;
+  color: black;
+  opacity: 1;
+  font-size: small;
+}
+
+@media screen and (max-width: 400px) {
+  .ui.header {
+    font-size: large;
+  }
+
+  .description {
+    font-size: smaller;
+  }
+}

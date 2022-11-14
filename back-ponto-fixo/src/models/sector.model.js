@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+const baseOptions = {
+    timestamps: true
+};
+
 const SectorSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -16,7 +20,7 @@ const SectorSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Property"
     }]
-});
+}, baseOptions);
 
 const Sector = mongoose.model('Sector', SectorSchema);
 

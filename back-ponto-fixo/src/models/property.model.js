@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+const baseOptions = {
+    timestamps: true
+};
+
 const PropertySchema = new mongoose.Schema({
     identifier: {
         type: String,
@@ -30,7 +34,7 @@ const PropertySchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Sector"
     }
-});
+}, baseOptions);
 
 const Property = mongoose.model('Property', PropertySchema);
 

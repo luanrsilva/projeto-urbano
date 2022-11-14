@@ -1,0 +1,27 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1040;
+}
+
+.side-bar {
+  width: 250px;
+  min-height: 100%;
+}
+
+.body {
+  width: calc(100vw - 220px);
+  min-height: 100%;
+  float: right;
+  margin-top: 80px;
+}
+
+@media screen and (max-width: 400px) {
+  .body {
+    width: calc(100vw - 80px);
+  }
+}
+
+
