@@ -1,0 +1,37 @@
+.ui.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .ui.card {
+        position: absolute;
+        background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+        background: #ffffff 0% 0% no-repeat padding-box;
+        border-radius: 8px 8px 8px 8px;
+        opacity: 1;
+
+        .content {
+            margin-top: 10%;
+            border: none;
+
+          .ui.teal.button {
+            background-color: #447dde;
+          }
+        }
+
+        .extra.content {
+
+            .ui.link {
+                margin: auto;
+            }
+        }
+    }
+
+    .form-label {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin-top: 30px;
+    }
+}

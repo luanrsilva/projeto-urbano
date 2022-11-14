@@ -1,0 +1,23 @@
+.ui.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .ui.thin.left.sidebar {
+    width: 80px;
+
+    .item {
+      font-size: xx-small;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.navbar {
+  background: #447dde;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 55px;
+
+    .navbar-brand {
+      .ui.image {
+        width: 181px;
+      }
+    }
+
+    .logout-button {
+      float: right;
+      margin: auto 10px;
+    }
+}

@@ -1,0 +1,28 @@
+<div class="ui container" id="city-detail">
+  <div class="title">
+    <app-title [title]=title [description]=description>
+    </app-title>
+  </div>
+
+  <div class="ui three item menu" *ngIf="!isNew">
+    <a routerLinkActive="active" class="item">Detalhes</a>
+    <a routerLinkActive="active"class="item">Setores</a>
+    <a routerLinkActive="active" class="item">Imóveis</a>
+  </div>
+
+  <div class="city-form" *ngIf="isNew">
+    <form class="ui form" [formGroup]="formGroup" (submit)="saveCity()">
+      <div class="fields">
+        <div class="ten wide field">
+          <label>Nome da Cidade</label>
+          <input class="form-control" formControlName="name" type="text" name="city-name" placeholder="Nome da Cidade">
+        </div>
+        <div class="ten wide field">
+          <label>Alíquota IPTU</label>
+          <input class="form-control" formControlName="iptu" type="number" step="0.1" name="aliquot-iptu" placeholder="Alíquota IPTU">
+        </div>
+      </div>
+      <button class="ui primary button save-button" type="submit">Salvar</button>
+    </form>
+  </div>
+</div>

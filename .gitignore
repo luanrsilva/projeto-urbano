@@ -1,3 +1,8 @@
+# IntelliJ
+.idea
+front-ponto-fixo/.idea
+back-ponto-fixo/.idea
+
 # Logs
 logs
 *.log
