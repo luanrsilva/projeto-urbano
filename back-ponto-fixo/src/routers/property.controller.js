@@ -11,4 +11,20 @@ router.post("/", async (req, res) => {
     })
 });
 
+router.get("/", async (req, res) => {
+    await propertyService.getAll((response) => {
+        res.status(response.status).send(response);
+        /*  #swagger.tags = ['Property']
+            #swagger.description = 'Endpoint to get all properties.' */
+    })
+})
+
+router.get("/:id", async (req, res) => {
+    await propertyService.getById(req.params.id, (response) => {
+        res.status(response.status).send(response);
+        /*  #swagger.tags = ['Property']
+            #swagger.description = 'Endpoint to get property by ID.' */
+    })
+});
+
 module.exports = router;

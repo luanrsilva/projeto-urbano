@@ -3,6 +3,10 @@
 
   .page {
     margin-top: 10px;
+
+    td:hover {
+      cursor: pointer;
+    }
   }
 }
 

@@ -19,6 +19,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {TitleComponent} from "./components/title/title.component";
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
+import { SectorComponent } from './components/sector/sector.component';
+import { PropertyComponent } from './components/property/property.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +32,9 @@ import { UserDetailComponent } from './components/user/user-detail/user-detail.c
         SideBarComponent,
         TitleComponent,
         UserListComponent,
-        UserDetailComponent
+        UserDetailComponent,
+        SectorComponent,
+        PropertyComponent
     ],
   imports: [
     BrowserModule,

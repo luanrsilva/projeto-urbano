@@ -29,7 +29,6 @@ export class CityListComponent implements OnInit {
     this.cityService.getCities().subscribe({
       next: (response) => {
         const res = JSON.parse(JSON.stringify(response));
-        console.log(res.data);
         this.cities = res.data;
       },
       error: err => {
@@ -43,7 +42,6 @@ export class CityListComponent implements OnInit {
   }
 
   goToCityDetail(id: string) {
-    console.log(id);
     this.router.navigate(['/cities/'+ `${id}`])
   }
 }

@@ -28,4 +28,12 @@ router.get("/:id", async (req, res) => {
     })
 });
 
+router.get("/:id/sectors", async (req, res) => {
+    await cityService.getCitySectors(req.params.id, (response) => {
+        res.status(response.status).send(response);
+        /*  #swagger.tags = ['City']
+            #swagger.description = 'Endpoint to get city by ID.' */
+    })
+});
+
 module.exports = router;
