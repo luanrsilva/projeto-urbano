@@ -18,6 +18,7 @@ const cityService = (function () {
     }
 
     const _addPropertyToCity = async function (cityId, propertyId) {
+        console.log('CITY', cityId)
         await City.findByIdAndUpdate(mongoose.Types.ObjectId(cityId), {$push: {properties: propertyId }});
     }
 
@@ -44,7 +45,16 @@ const cityService = (function () {
             const city = await City.findById(mongoose.Types.ObjectId(cityId)).populate('sectors');
             return callback(response.ok("", city));
         } catch (err) {
-            return callback(response.notFound("Cidade não encontrada"));
+            return callback(response.notFound("Erro ao recuperar setores da cidade"));
+        }
+    }
+
+    const _getCityProperties = async function (cityId, callback) {
+        try {
+            const city = await City.findById(mongoose.Types.ObjectId(cityId)).populate('properties');
+            return callback(response.ok("", city));
+        } catch (err) {
+            return callback(response.notFound("Erro ao recuperar setores da cidade"));
         }
     }
 
@@ -54,7 +64,8 @@ const cityService = (function () {
         getById: _getById,
         addSectorToCity: _addSectorToCity,
         addPropertyToCity: _addPropertyToCity,
-        getCitySectors: _getCitySectors
+        getCitySectors: _getCitySectors,
+        getCityProperties: _getCityProperties
     }
 })();
 

@@ -35,4 +35,8 @@ export class CityService {
   getCitySectors(cityId: string) {
     return this.httpClient.get(this.baseUrl + cityId + '/sectors', this.httpOptions);
   }
+
+  getCityProperties(cityId: string) {
+    return this.httpClient.get(this.baseUrl + cityId + '/properties', this.httpOptions);
+  }
 }

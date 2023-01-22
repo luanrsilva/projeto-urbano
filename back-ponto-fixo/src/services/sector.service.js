@@ -8,7 +8,7 @@ const sectorService = (function () {
     const _createSector = async function (sector, callback) {
         try {
             const newSector = await Sector.create(sector);
-            await cityService.addSectorToCity(sector.cityId, newSector.id);
+            await cityService.addSectorToCity(sector.cityId, newSector._id);
             return callback(response.ok("Setor criado com sucesso.", newSector));
         } catch (err) {
             return callback(response.badRequest(err.message));
@@ -16,21 +16,8 @@ const sectorService = (function () {
     }
 
     const _addPropertyToSector = async function (sectorId, propertyId) {
-        const sector = await Sector.findById(mongoose.Types.ObjectId(sectorId));
-        sector.properties.push(propertyId);
-
-        await sector.save();
-    }
-
-    const _getSectorsByCity = async function (cityId, callback) {
-        try {
-            console.log(cityId)
-            const sectors = await Sector.find({city: mongoose.Types.ObjectId(cityId)});
-            console.log(sectors)
-            return callback(response.ok("", sectors));
-        } catch (err) {
-            return callback(response.badRequest("Erro ao recuperar setores"));
-        }
+        console.log(sectorId)
+        await Sector.findByIdAndUpdate(mongoose.Types.ObjectId(sectorId), {$push: {properties: propertyId }});
     }
 
     const _getById = async function (cityId, callback) {
@@ -45,7 +32,6 @@ const sectorService = (function () {
     return {
         createSector: _createSector,
         addPropertyToSector: _addPropertyToSector,
-        getSectorsByCity: _getSectorsByCity,
         getById: _getById,
     }
 })();

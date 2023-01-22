@@ -1,1 +1,81 @@
-<p>property works!</p>
+<div class="ui container" id="properties">
+  <div class="page">
+    <div class="ui tabular menu">
+      <a class="item active" (click)="setActiveTab('LIST')" [ngClass]="{'active': isActiveTab('LIST'),
+      'cursor-pointer': !isActiveTab('LIST')}">Cadastrados</a>
+
+      <a class="item" (click)="setActiveTab('NEW')" [ngClass]="{'active': isActiveTab('NEW'),
+      'cursor-pointer': !isActiveTab('NEW')}">Adicionar</a>
+    </div>
+
+    <div [hidden]="!isActiveTab('LIST')">
+      <table class="ui selectable celled table">
+        <thead>
+        <tr>
+          <th>Identificador</th>
+          <th>Nº da casa</th>
+          <th>Área do Terreno(m²)</th>
+          <th>Área do Construída(m²)</th>
+          <th>Valor Estimado</th>
+          <th>IPTU</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let property of properties">
+        <tr>
+          <td>{{property.identifier}}</td>
+          <td>{{property.houseNumber}}</td>
+          <td>{{property.landArea}}</td>
+          <td>{{property.buildingArea}}</td>
+          <td>{{property.ownerName}}</td>
+          <td>{{property.ownerCPF}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div [hidden]="!isActiveTab('NEW')">
+      <div class="sector-form">
+        <form class="ui form" [formGroup]="formGroup" (submit)="saveProperty()">
+          <div class="fields">
+            <div class="ten wide field">
+              <label>Identificador</label>
+              <input class="form-control" formControlName="identifier" type="number" step="1" name="identifier" placeholder="0000">
+            </div>
+            <div class="ten wide field">
+              <label>Número da Casa</label>
+              <input class="form-control" formControlName="houseNumber" type="number" step="1.0" name="houseNumber" placeholder="000">
+            </div>
+            <div class="ten wide field">
+              <label>Área do Terreno (m²)</label>
+              <input class="form-control" formControlName="landArea" type="number" step="1.0" name="landArea" placeholder="000 m²">
+            </div>
+            <div class="ten wide field">
+              <label>Setor</label>
+              <select class="ui dropdown" *ngFor="let sector of sectors" formControlName="sector">
+                <option value="">Selecione</option>
+                <option [value]="sector._id">{{sector.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="fields">
+            <div class="ten wide field">
+              <label>Área Construída (m²)</label>
+              <input class="form-control" formControlName="buildingArea" type="number" step="1.0" name="buildingArea" placeholder="000 m²">
+            </div>
+            <div class="ten wide field">
+              <label>Nome do Proprietário</label>
+              <input class="form-control" formControlName="ownerName" type="text" name="ownerName" placeholder="Nome do proprietário">
+            </div>
+            <div class="ten wide field">
+              <label>CPF do Proprietário</label>
+              <input class="form-control" formControlName="ownerCPF" type="text" name="ownerCPF" placeholder="CPF do proprietário">
+            </div>
+          </div>
+
+          <button class="ui primary button save-button" type="submit">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

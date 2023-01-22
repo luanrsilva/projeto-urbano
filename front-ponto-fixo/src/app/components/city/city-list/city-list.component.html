@@ -14,14 +14,14 @@
         <tr>
           <th>Cidade</th>
           <th>Alíquota IPTU</th>
-          <th>Adicionada em:</th>
+          <th>Setores</th>
         </tr>
       </thead>
       <tbody *ngFor="let city of cities">
         <tr (click)="goToCityDetail(city._id)">
           <td>{{city.name}}</td>
           <td>{{city.iptuAliquot}}</td>
-          <td>{{city.createdAt | date: 'dd/mm/yyyy'}}</td>
+          <td>{{city.sectors.length}}</td>
         </tr>
       </tbody>
     </table>
