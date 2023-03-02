@@ -26,8 +26,8 @@
           <td>{{property.houseNumber}}</td>
           <td>{{property.landArea}}</td>
           <td>{{property.buildingArea}}</td>
-          <td>{{property.ownerName}}</td>
-          <td>{{property.ownerCPF}}</td>
+          <td>R$ {{property.estimatedValue | number:'1.0-2'}}</td>
+          <td>R$ {{property.iptu | number:'1.0-2'}}</td>
         </tr>
         </tbody>
       </table>
@@ -51,9 +51,8 @@
             </div>
             <div class="ten wide field">
               <label>Setor</label>
-              <select class="ui dropdown" *ngFor="let sector of sectors" formControlName="sector">
-                <option value="">Selecione</option>
-                <option [value]="sector._id">{{sector.name}}</option>
+              <select class="ui dropdown" formControlName="sector">
+                <option *ngFor="let sector of sectors" [value]="sector._id">{{sector.name}}</option>
               </select>
             </div>
           </div>
@@ -72,7 +71,7 @@
             </div>
           </div>
 
-          <button class="ui primary button save-button" type="submit">Salvar</button>
+          <button class="ui primary button save-button" type="submit" [disabled]="!formGroup.valid">Salvar</button>
         </form>
       </div>
     </div>

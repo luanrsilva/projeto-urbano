@@ -44,6 +44,23 @@
         "responses": {}
       }
     },
+    "/api/sector/{id}": {
+      "get": {
+        "tags": [
+          "Sector"
+        ],
+        "description": "Endpoint to get sector by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
     "/api/city/": {
       "post": {
         "tags": [
@@ -79,6 +96,40 @@
         "responses": {}
       }
     },
+    "/api/city/{id}/sectors": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "description": "Endpoint to get city sectors.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/api/city/{id}/properties": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "description": "Endpoint to get city properties.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
     "/api/property/": {
       "post": {
         "tags": [
@@ -86,6 +137,31 @@
         ],
         "description": "Endpoint to add a property.",
         "parameters": [],
+        "responses": {}
+      },
+      "get": {
+        "tags": [
+          "Property"
+        ],
+        "description": "Endpoint to get all properties.",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/property/{id}": {
+      "get": {
+        "tags": [
+          "Property"
+        ],
+        "description": "Endpoint to get property by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {}
       }
     }

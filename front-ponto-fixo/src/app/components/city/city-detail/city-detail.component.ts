@@ -68,7 +68,7 @@ export class CityDetailComponent implements OnInit {
   private buildForm() {
     this.formGroup = this.fb.group({
       name: ['', [Validators.required]],
-      iptu: ['', []]
+      iptu: ['', [Validators.required]]
     });
   }
 
@@ -93,7 +93,7 @@ export class CityDetailComponent implements OnInit {
     this.title = '1'
   }
 
-  private goToCityList() {
+  goToCityList() {
     this.router.navigate(['/cities/'])
   }
 

@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     await sectorService.getById(req.params.id, (response) => {
         res.status(response.status).send(response);
-        /*  #swagger.tags = ['City']
+        /*  #swagger.tags = ['Sector']
             #swagger.description = 'Endpoint to get sector by ID.' */
     })
 });

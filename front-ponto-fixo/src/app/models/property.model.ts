@@ -7,4 +7,6 @@ export class PropertyModel {
   ownerCPF!: string;
   sectorId!: string;
   cityId!: string;
+  iptu!: number;
+  estimatedValue!: number;
 }

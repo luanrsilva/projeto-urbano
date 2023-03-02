@@ -114,4 +114,12 @@ export class PropertyComponent implements OnInit {
       }
     })
   }
+
+  calculateValue(property: PropertyModel) {
+    return
+  }
+
+  calculateIPTU(property: PropertyModel) {
+
+  }
 }

@@ -2,6 +2,8 @@
   <div class="title">
     <app-title [title]=title [description]=description>
     </app-title>
+
+    <button class="ui secondary button" (click)="goToCityList()">Voltar</button>
   </div>
 
   <div class="ui two item menu" *ngIf="!isNew" style="width: 50%">
@@ -25,7 +27,7 @@
           <input class="form-control" formControlName="iptu" type="number" step="0.1" name="aliquot-iptu" placeholder="Alíquota IPTU">
         </div>
       </div>
-      <button class="ui primary button save-button" type="submit">Salvar</button>
+      <button class="ui primary button save-button" type="submit" [disabled]="!formGroup.valid">Salvar</button>
     </form>
   </div>
 

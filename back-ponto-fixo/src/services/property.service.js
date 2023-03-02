@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
 const Property = require('../models/property.model');
+const City = require('../models/city.model');
 const sectorService = require('./sector.service');
 const cityService = require('./city.service');
 const response = require('../config/responses');
+const Sector = require("../models/sector.model");
 
 const propertyService = (function () {
 
     const _createProperty = async function (property, callback) {
         try {
-            const newProperty = await Property.create(property);
-            console.log('AAAA', property)
-            console.log('NEW', newProperty)
+            const newProperty = await _buildProperty(property);
             await sectorService.addPropertyToSector(property.sectorId, newProperty._id);
             await cityService.addPropertyToCity(property.cityId, newProperty._id);
             return callback(response.ok("Propriedade adicionada com sucesso.", newProperty));
@@ -35,6 +35,20 @@ const propertyService = (function () {
         } catch (err) {
             return callback(response.notFound("Propriedade não encontrada"));
         }
+    }
+
+    const _buildProperty = async function (property) {
+        try {
+            const city = await City.findById(property.cityId);
+            const sector = await Sector.findById(property.sectorId);
+            property.estimatedValue = sector.value * property.landArea;
+            property.iptu = (city.iptuAliquot * property.estimatedValue)/100;
+            return await Property.create(property);
+        }
+        catch (err) {
+            console.log(err.message);
+        }
+
     }
 
     return {

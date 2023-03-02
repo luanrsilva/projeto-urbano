@@ -11,7 +11,7 @@
           <input class="form-control" formControlName="value" type="number" step="1.0" name="value" placeholder="R$ 0,00">
         </div>
         <div class="ten wide field">
-          <button class="ui primary button save-button" type="submit">Salvar</button>
+          <button class="ui primary button save-button" type="submit" [disabled]="!formGroup.valid">Salvar</button>
         </div>
       </div>
     </form>

@@ -25,7 +25,8 @@ export class SectorComponent implements OnInit {
     public route: ActivatedRoute,
     private sectorService: SectorService,
     private toastrService: ToastrService,
-    private cityService: CityService) {
+    private cityService: CityService)
+  {
     this.buildForm();
   }
 
@@ -60,6 +61,7 @@ export class SectorComponent implements OnInit {
         this.toastrService.error(err.error.message, 'ERRO');
       }
     })
+    this.buildForm();
     this.loadSectors();
   }
 
