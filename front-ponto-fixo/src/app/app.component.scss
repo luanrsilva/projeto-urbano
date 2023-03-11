@@ -12,15 +12,15 @@
 }
 
 .body {
-  width: calc(100vw - 220px);
+  //width: calc(100vw - 220px);
   min-height: 100%;
-  float: right;
+  //float: right;
   margin-top: 80px;
 }
 
 @media screen and (max-width: 400px) {
   .body {
-    width: calc(100vw - 80px);
+    //width: calc(100vw - 80px);
   }
 }
 

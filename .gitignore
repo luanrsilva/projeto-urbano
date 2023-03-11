@@ -1,7 +1,10 @@
 # IntelliJ
-.idea
-front-ponto-fixo/.idea
-back-ponto-fixo/.idea
+.idea/
+./front-ponto-fixo/.idea/
+./back-ponto-fixo/.idea
+
+#VSCode
+front-ponto-fixo/.vscode/
 
 # Logs
 logs

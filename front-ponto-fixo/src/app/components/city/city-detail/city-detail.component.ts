@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { CityService } from "../../../services/city/city.service";
 import { CityModel } from "../../../models/city.model";
 import { ToastrService } from "ngx-toastr";
@@ -19,8 +19,10 @@ export class CityDetailComponent implements OnInit {
   city!: CityModel;
 
   public formGroup!: FormGroup;
+  private activeTab: any;
 
   constructor(
+    private router: Router,
     public route: ActivatedRoute,
     private cityService: CityService,
     private fb: FormBuilder,
@@ -42,7 +44,6 @@ export class CityDetailComponent implements OnInit {
         this.description = 'Adicionando uma nova cidade';
         this.city = new CityModel();
       } else {
-        console.log(params)
         this.cityId = params[1].toString();
         this.getCity();
       }
@@ -54,12 +55,11 @@ export class CityDetailComponent implements OnInit {
     this.buildCity();
     this.cityService.save(this.city).subscribe({
       next: (response) => {
-        console.log(response)
         const res = JSON.parse(JSON.stringify(response));
         this.toastrService.success(res.message,'SUCESSO');
+        this.goToCityList();
       },
       error: err => {
-        console.log(err)
         this.toastrService.error(err.error.message, 'ERRO');
       }
     })
@@ -68,7 +68,7 @@ export class CityDetailComponent implements OnInit {
   private buildForm() {
     this.formGroup = this.fb.group({
       name: ['', [Validators.required]],
-      iptu: ['', []]
+      iptu: ['', [Validators.required]]
     });
   }
 
@@ -80,10 +80,10 @@ export class CityDetailComponent implements OnInit {
   private getCity() {
     this.cityService.getById(this.cityId).subscribe({
       next: value => {
-        console.log(value);
         const res = JSON.parse(JSON.stringify(value));
         this.city = res.data;
         this.title = this.city.name;
+        this.description = 'Alíquota IPTU: ' + this.city.iptuAliquot + "%";
       },
       error: err => {
         this.toastrService.error(err.error.message, 'ERRO');
@@ -91,5 +91,21 @@ export class CityDetailComponent implements OnInit {
     });
 
     this.title = '1'
+  }
+
+  goToCityList() {
+    this.router.navigate(['/cities/'])
+  }
+
+  setActiveTab(tab: 'DETAILS' | 'SECTORS' | 'PROPERTIES'): void {
+    this.activeTab = tab;
+  }
+
+  isActiveTab(tab: 'DETAILS' | 'SECTORS' | 'PROPERTIES'): boolean {
+    if(!this.activeTab) {
+      this.activeTab = tab;
+      return this.activeTab === tab;
+    }
+    return this.activeTab === tab;
   }
 }

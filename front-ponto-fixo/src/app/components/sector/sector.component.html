@@ -1,0 +1,37 @@
+<div class="ui container" id="sector">
+  <div class="sector-form">
+    <form class="ui form" [formGroup]="formGroup" (submit)="saveSector()">
+      <div class="fields">
+        <div class="ten wide field">
+          <label>Nome do Setor</label>
+          <input class="form-control" formControlName="name" type="text" name="sector-name" placeholder="Nome do Setor">
+        </div>
+        <div class="ten wide field">
+          <label>Valor do m² (R$)</label>
+          <input class="form-control" formControlName="value" type="number" step="1.0" name="value" placeholder="R$ 0,00">
+        </div>
+        <div class="ten wide field">
+          <button class="ui primary button save-button" type="submit" [disabled]="!formGroup.valid">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="page">
+    <table class="ui selectable celled table">
+      <thead>
+      <tr>
+        <th>Setor</th>
+        <th>Valor do m²</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let sector of sectors">
+      <tr>
+        <td>{{sector.name}}</td>
+        <td>R$ {{sector.value | number:'1.2-3'}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

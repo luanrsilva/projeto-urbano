@@ -30,9 +30,9 @@ const doc = {
     }
 }
 
-const outputFile = './swagger-output.json'
-const endpointsFiles = ['./config/router.js']
+const outputFile = '../doc/swagger-output.json'
+const endpointsFiles = ['../config/router.js']
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
-    require('./index')           // Your project's root file
+    require('../index')
 })

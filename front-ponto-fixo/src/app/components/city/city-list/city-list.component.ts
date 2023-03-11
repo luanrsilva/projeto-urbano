@@ -29,8 +29,8 @@ export class CityListComponent implements OnInit {
     this.cityService.getCities().subscribe({
       next: (response) => {
         const res = JSON.parse(JSON.stringify(response));
-        console.log(res.data);
         this.cities = res.data;
+        console.log(this.cities)
       },
       error: err => {
         this.toastrService.error(err.error.message, 'ERRO');
@@ -43,7 +43,11 @@ export class CityListComponent implements OnInit {
   }
 
   goToCityDetail(id: string) {
-    console.log(id);
     this.router.navigate(['/cities/'+ `${id}`])
+  }
+
+  getDate(date: Date) {
+    console.log(typeof date)
+    return date.getDate();
   }
 }

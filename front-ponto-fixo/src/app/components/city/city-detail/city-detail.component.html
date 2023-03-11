@@ -2,12 +2,17 @@
   <div class="title">
     <app-title [title]=title [description]=description>
     </app-title>
+
+    <button class="ui secondary button" (click)="goToCityList()">Voltar</button>
   </div>
 
-  <div class="ui three item menu" *ngIf="!isNew">
-    <a routerLinkActive="active" class="item">Detalhes</a>
-    <a routerLinkActive="active"class="item">Setores</a>
-    <a routerLinkActive="active" class="item">Imóveis</a>
+  <div class="ui two item menu" *ngIf="!isNew" style="width: 50%">
+    <a routerLinkActive="active" class="item" (click)="setActiveTab('SECTORS')"
+       [ngClass]="{'active': isActiveTab('SECTORS'),
+      'cursor-pointer': !isActiveTab('SECTORS')}">Setores</a>
+    <a routerLinkActive="active" class="item" (click)="setActiveTab('PROPERTIES')"
+       [ngClass]="{'active': isActiveTab('PROPERTIES'),
+      'cursor-pointer': !isActiveTab('PROPERTIES')}">Imóveis</a>
   </div>
 
   <div class="city-form" *ngIf="isNew">
@@ -22,7 +27,16 @@
           <input class="form-control" formControlName="iptu" type="number" step="0.1" name="aliquot-iptu" placeholder="Alíquota IPTU">
         </div>
       </div>
-      <button class="ui primary button save-button" type="submit">Salvar</button>
+      <button class="ui primary button save-button" type="submit" [disabled]="!formGroup.valid">Salvar</button>
     </form>
+  </div>
+
+  <div *ngIf="!isNew" class="tab-content">
+    <div [hidden]="!isActiveTab('SECTORS')">
+      <app-sector></app-sector>
+    </div>
+    <div [hidden]="!isActiveTab('PROPERTIES')">
+      <app-property></app-property>
+    </div>
   </div>
 </div>

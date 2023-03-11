@@ -25,6 +25,12 @@ const PropertySchema = new mongoose.Schema({
     ownerCPF: {
         type: String
     },
+    estimatedValue: {
+        type: Number
+    },
+    iptu: {
+        type: Number
+    },
     city: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "City",
