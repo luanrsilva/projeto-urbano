@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express')
-const swaggerFile = require('./swagger-output.json')
+const swaggerFile = require('./doc/swagger-output.json')
 const cors = require('cors');
 
 require('./config/mongoose');
