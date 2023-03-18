@@ -4,6 +4,7 @@
 ./back-ponto-fixo/.idea
 
 #VSCode
+.vscode/
 front-ponto-fixo/.vscode/
 
 # Logs
@@ -110,3 +111,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+back-ponto-fixo/data/
+data/

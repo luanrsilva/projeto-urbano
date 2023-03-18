@@ -24,6 +24,8 @@ app.all('/*', (req, res, next) => {
 
 require('./config/router')(app);
 
-app.listen(8080, () => {
-    console.log('app is running on the port 8080');
+const port = process.env.port || 3000;
+
+app.listen(port, () => {
+    console.log('app is running on the port ' + port);
 })
