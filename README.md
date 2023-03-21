@@ -1,4 +1,10 @@
 # PROJETO-URBANO
+
+## Docker
+
+Run `docker-compose -f "docker-compose.yml" up -d --build` to create and start containers
+Run `docker-compose -f "docker-compose.yml" down` to stop and remove containers, networks
+
 ## Back-End
 
 Run `node swagger.js` inside the directory `back-ponto-fixo/src` and navigate to `http://localhost:8080/doc/#/` to see the API documentation.
