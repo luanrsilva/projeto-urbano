@@ -16,10 +16,5 @@ COPY . .
 # Expõe a porta do seu aplicativo Node.js
 EXPOSE 3000
 
-# Define variáveis de ambiente para se conectar ao MongoDB
-# ENV MONGO_HOST localhost
-# ENV MONGO_PORT 27017
-# ENV MONGO_DB_NAME ponto-fixo
-
 # Inicia o seu aplicativo Node.js
 CMD ["npm", "start"]
