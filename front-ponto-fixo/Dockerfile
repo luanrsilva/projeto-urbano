@@ -1,19 +1,10 @@
-# Usar a imagem do Node.js como base
-FROM node:latest AS builder
-
-# Definir diretório de trabalho
+FROM node:14 as angular
 WORKDIR /app
-
-# Copiar arquivos de package.json e package-lock.json para o diretório de trabalho
-COPY package*.json ./
-
-# Instalar dependências
-RUN npm install
-
-# Copiar o código fonte da aplicação para o diretório de trabalho
+COPY package.json /app
+RUN npm install --silent
 COPY . .
 
 FROM nginx:alpine
 VOLUME /var/cache/nginx
-COPY --from=builder app/dist/* /usr/share/nginx/html/
+COPY --from=angular app/dist/* /usr/share/nginx/html/
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
